@@ -4,17 +4,29 @@ body{
 }
 
 p, h2, label{
-  color: white;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 
 p{
-  margin-left: 39vw;
-  background-color: rgb(16, 16, 16);
-  padding: 2px;
-  width: 10em;
   text-align: center;
 }
 
-input{
-  margin-left: 5px;
+input, button{
+  margin: 5px;
+}
+
+#center{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
