@@ -3,14 +3,18 @@ body{
   background-color: rgb(31, 31, 31);
 }
 
-p, h2{
+p, h2, label{
   color: white;
 }
 
 p{
-  margin-left: 42.5vw;
+  margin-left: 39vw;
   background-color: rgb(16, 16, 16);
   padding: 2px;
   width: 10em;
   text-align: center;
+}
+
+input{
+  margin-left: 5px;
 }

@@ -1,17 +1,14 @@
 import './App.css';
-import Pessoa from './components/Pessoa';
-import Frases from './components/Frases';
-import SayMyName from './components/SayMyName';
+import Evento from './components/Evento';
+import Form from './components/Form';
 
 function App() {
-  const nome = 'Maria'
   return (
     <div className="App">
-      <SayMyName nome = {nome}/>
-      <SayMyName nome = {nome}/>
-      <Pessoa nome='Rodrigo' idade='29' profissao='Desenvolvedor Front End' foto='https://via.placeholder.com/150'/>
-      <Frases />
-      <Frases />
+      <h1>Eventos teste</h1>
+      <Evento numero="1" />
+      <Evento numero="2"/>
+      <Form />
     </div>
   );
 }
