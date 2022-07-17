@@ -1,6 +1,7 @@
 body{
   padding: 50px;
   background-color: rgb(31, 31, 31);
+  color: white;
 }
 
 p, h2, label{
@@ -15,6 +16,9 @@ p, h2, label{
 
 p{
   text-align: center;
+  background-color: rgb(21, 21, 21);
+  width: 30%;
+  margin-left: 35%;
 }
 
 input, button{
