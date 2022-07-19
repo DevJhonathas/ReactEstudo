@@ -1,0 +1,1 @@
+Server para guardar funções pequenas e simples | Funções puras

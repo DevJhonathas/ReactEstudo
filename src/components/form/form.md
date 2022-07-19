@@ -1,0 +1,1 @@
+Armazena componentes de interface do usuário

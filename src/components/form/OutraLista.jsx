@@ -8,8 +8,7 @@ function OutraLista({itens}){
                     <p key={index}>{item}</p>
                 ))) : (
                 <p>Não há itens na lista!</p>
-            )
-            }
+            )}
         </>
     )
 }

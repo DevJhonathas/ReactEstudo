@@ -1,17 +1,18 @@
-import './App.css';
-import OutraLista from './components/OutraLista';
+import '../src/assets/App.css';
+import OutraLista from './components/form/OutraLista';
 
 
 
 function App() {
-  const meusItens = ['React','Vue','angular'];
+
+  const meusItens = ['React','Vue','angular']
+
   return (
     <div className="App">
       <h1>Redenrizacao de listas</h1>
       <OutraLista itens={meusItens} />
-      <OutraLista itens={[]} />
     </div>
   )
 }
 
-export default App
+export default App;
