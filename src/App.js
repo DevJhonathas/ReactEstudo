@@ -1,14 +1,18 @@
+import {useState} from 'react'
 import '../src/assets/App.css';
-import Greeting from './assets/EstudoForaDoCurso/Greeting';
+import SeuNome from './components/form/SeuNome';
+import Saudacao from './components/form/Saudacao';
 
 
 
 
 function App() {
-
+  const [nome, setNome] = useState()
   return (
     <div className="App">
-      <Greeting />
+      <h1>State Lift</h1>
+      <SeuNome setNome={setNome} />
+      <Saudacao nome={nome} />
     </div>
   )
 }
