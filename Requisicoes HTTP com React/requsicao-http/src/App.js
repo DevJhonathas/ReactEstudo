@@ -1,16 +1,16 @@
 import './App.css';
 
-import { useState, useEffect } from "react";
+import { useState} from "react";
 // 4- custom hook
 import { useFetch } from './hook/useFetch';
 
 const url = "http://localhost:3000/products";
 
 function App() {
-  const [products, setProducts] = useState([]); //Server para pegarmos as informações da API
+  // const [products, setProducts] = useState([]); //Server para pegarmos as informações da API
 
 // 4- custom hook
-  const { data: items } = useFetch(url); //Esse hook é responsável pela mesma validação do useEffect que usei logo abaixo, a diferença é que com ele poremos utilizar varias vezes em outras partes do código.
+  const { data: items, httpConfig, loading, error} = useFetch(url); //Esse hook é responsável pela mesma validação do useEffect que usei logo abaixo, a diferença é que com ele poremos utilizar varias vezes em outras partes do código.
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -38,18 +38,21 @@ function App() {
       price
     };
     
-    const res = await fetch(url, {
-      method: "POST", //Definindo se é um POST ou GET
-      headers: {
-        "Content-Type": "application/json" //estou definindo que o tipo do nosso arquivo é um json
-      },
-      body: JSON.stringify(product) //Ele trafega o dado para backend em formato JSON
-    });
+    // const res = await fetch(url, {
+    //   method: "POST", //Definindo se é um POST ou GET
+    //   headers: {
+    //     "Content-Type": "application/json" //estou definindo que o tipo do nosso arquivo é um json  
+    //   },
+    //   body: JSON.stringify(product) //Ele trafega o dado para backend em formato JSON
+    // });
 
-      // 3- carregamento dinamico
-      const addedProduct  = await res.json(); //aqui transformamos a const res em um json, fazendo ela deixar de ser uma string
-      setProducts((prevProducts) => [...prevProducts, addedProduct]); //aqui pegamos os dados do json antigo e adicionamos junto com o novo, sem precisar de reload
+    //   // 3- carregamento dinamico
+    //   const addedProduct  = await res.json(); //aqui transformamos a const res em um json, fazendo ela deixar de ser uma string
+    //   setProducts((prevProducts) => [...prevProducts, addedProduct]); //aqui pegamos os dados do json antigo e adicionamos junto com o novo, sem precisar de reload
 
+
+    // 5- refatorando post 
+      httpConfig(product, "POST");
       setName(""); //Deixa o input limpo para o usuario ao enviar o dado
       setPrice(""); //Deixa o input limpo para o usuario ao enviar o dado
   };
@@ -57,13 +60,18 @@ function App() {
   return (
     <div className="App">
       <h1>Lista de produtos</h1>
-      <ul>
+      {/* 6- loading */}
+      {loading && <p>Carregando dados...</p>}
+      {error && <p>{error}</p>}
+      {!loading && (
+        <ul>
         {items && items.map((product) => (
           <li key={product.id}>
             {product.name} - R$: {product.price}
           </li>
         ))}
       </ul>
+      )}
       <div className="add-product">
         <form onSubmit={handleSubmit}>
           <label>
@@ -74,7 +82,10 @@ function App() {
             Price:
             <input type="number" value={price} name="price" onChange={(e) => setPrice(e.target.value)}/>
           </label>
-          <input type="submit" value="Criar" />
+          {/* 7- state de loading no post */}
+          {loading &&  <input type="submit" disabled value="Aguarde" />}
+          {!loading &&  <input type="submit" value="Criar" />}
+          
         </form>
       </div>
     </div>
