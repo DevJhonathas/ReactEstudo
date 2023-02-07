@@ -1,0 +1,15 @@
+.about{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.about h1{
+    text-align: center;
+    font-size: 2em;
+}
+
+.paragrafh{
+    text-align: center;
+    font-size: 1.5em;
+}
