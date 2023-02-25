@@ -30,7 +30,6 @@ const HookUseEffect = () => {
         //     console.log("Hello World!");
         //     setAnotherNumber(anotherNumber + 1);
         // }, 2000);
-
         // return () => clearTimeout(timer);
     }, [anotherNumber])
   return (
