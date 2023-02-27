@@ -10,7 +10,8 @@ const List = ({getItems}) => {
     }, [getItems]);
   return (
     <div>
-        {myItems.map((item) => (
+        {myItems && 
+        myItems.map((item) => (
             <p key={item}>{item}</p>
         ))}
     </div>
