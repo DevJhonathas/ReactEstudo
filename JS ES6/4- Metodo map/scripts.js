@@ -1,4 +1,4 @@
-//4- map
+ //4- map
 
 const products = [
     {name: "Camisa", price: 10.99, category: "Roupas"},
